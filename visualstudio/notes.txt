@@ -1,1 +1,4 @@
-blank
+https://learn.microsoft.com/en-us/windows/apps/winui/winui3/create-your-first-winui3-app
+https://learn.microsoft.com/en-us/windows/apps/windows-app-sdk/downloads
+
+Need the sdk otherwise visual studio give a "i don't know how to run" answer.

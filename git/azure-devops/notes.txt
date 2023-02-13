@@ -17,3 +17,31 @@ $ git add . && git commit -m "initial commit"
 see github and azuredevops
 
  
+
+ eg. this worked
+
+cd to local directory containing git repository
+git config --global user.email jeztrem@hotmail.com
+git config --global user,name "jeztrem"
+git remote add origin https://jeztrem@dev.azure.com/jeztrem/Yw/_git/Yw
+git push - u origin --all
+
+
+* clone YClass
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Admin
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/EncounterBuilder
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/EntryBuilder
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Identity
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Prep
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Settings
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Start
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Storage.Azure
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Storage.Local
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Storage.Prep
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Utility
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/WrapperBuilder
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Wrappers
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Xml
+
+Will need to give credentials at least once in the shell.

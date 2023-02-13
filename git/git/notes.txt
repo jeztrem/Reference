@@ -18,3 +18,13 @@ $ git add . && git commit -m "initial commit"
 see github and azuredevops
 
  
+devops
+
+cd to local directory containing git repository
+
+git config --global user.email jeztrem@hotmail.com
+git config --global user.name "jeztrem"
+git remote add origin https://jeztrem@dev.azure.com/jeztrem/Yw/_git/Yw
+git push - u origin --all
+
+github

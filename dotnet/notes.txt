@@ -1,0 +1,18 @@
+YClass build order
+
+Get-ChildItem .\ -include bin,obj -Recurse | foreach ($_) { remove-item $_.fullname -Force -Recurse }
+
+dotnet build utility/code.utility.sln
+dotnet build xml/code.xml.sln
+dotnet build storage.prep/storage.prep.sln
+dotnet build storage.azure/storage.azure.sln
+dotnet build storage.local/storage.local.sln
+dotnet build settings/code.settings.sln
+dotnet build identity/code.identity.sln
+dotnet build admin /code.admin.sln
+dotnet build start/code.start.sln
+dotnet build entrybuilder/code.entrybuilder.sln
+dotnet build wrappers/code.wrappers.sln
+dotnet build wrapperbuilder/code.wrapperbuilder.sln
+dotnet build encounterbuilder/code.encounterbuilder.sln
+dotnet build prep/code.prep.sln
