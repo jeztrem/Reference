@@ -5,5 +5,6 @@ git
 2). Publish repo pops up.
 3). select github path. (remember to make public)
 4). select branch, work, Commit and push.
+5). merge back to master.
 
 
