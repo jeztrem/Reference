@@ -7,7 +7,8 @@ $ git config --global color.ui auto
 1). whoami (need user.name and user.email set) (hash seed)
 $ git config --list
 
-2). local init repository 
+2). local init repository (never got this to work. See vscode
+)
 $ cd local
 $ git init -b main
 $ git add . && git commit -m "initial commit"

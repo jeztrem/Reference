@@ -1,1 +1,8 @@
-nonblank file
+git
+
+0). initialize repository on local machine via command line or vscode.
+1). Commit and updates
+2). Publish repo pops up.
+3). select github path.
+
+
