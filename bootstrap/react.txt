@@ -1,0 +1,20 @@
+
+install bootstrap
+
+$ npm install bootstrap
+
+
+In index.js 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+================================
+Also there is a react-bootstrap (maybe just try it)
+
+https://react-bootstrap.github.io/
+
+npm install react-bootstrap bootstrap
+in index.js
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+in component
+import Button from 'react-bootstrap/Button';

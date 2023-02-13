@@ -16,3 +16,7 @@ Get the authentication set up.
 1). 
 gh repo create
 
+
+From vscode can add via push.
+Need to have repository in github first? No can't have it will clash.
+
