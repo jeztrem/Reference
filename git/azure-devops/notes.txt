@@ -1,0 +1,19 @@
+
+0). Installation
+$ git config --global user.name "[name]"
+$ git config --global user.email "[email address]"
+$ git config --global color.ui auto
+
+1). whoami (need user.name and user.email set) (hash seed)
+$ git config --list
+
+2). local init repository 
+$ cd local
+$ git init -b main
+$ git add . && git commit -m "initial commit"
+
+
+3). push to remote
+see github and azuredevops
+
+ 
