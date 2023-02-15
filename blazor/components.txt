@@ -1,0 +1,55 @@
+To create a Bootstrap modal as a Razor component, you can follow these steps:
+
+Create a new Razor component by adding a new file with the .razor extension to your project.
+
+In the Razor component file, add the following code to define the component's markup:
+
+html
+Copy code
+<div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @ChildContent
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+This code defines a basic Bootstrap modal with a header, body, and footer. It also includes a slot for child content that will be defined when the component is used.
+
+Define a parameter in the component for the visibility of the modal, like so:
+html
+Copy code
+<div class="modal fade @(IsVisible ? "show" : "")" tabindex="-1" role="dialog" style="@(IsVisible ? "display: block;" : "")">
+This code will use the IsVisible parameter to conditionally add the "show" and "display: block;" classes to the modal, which will control its visibility.
+
+Add an event handler for the close button:
+html
+Copy code
+<button type="button" class="close" data-dismiss="modal" aria-label="Close" @onclick="() => { IsVisible = false; }">
+This code will update the IsVisible parameter when the close button is clicked, which will hide the modal.
+
+In the component's code block, define a boolean property for the visibility of the modal:
+csharp
+Copy code
+[Parameter]
+public bool IsVisible { get; set; }
+Use the component in another Razor file like so:
+html
+Copy code
+<MyModal IsVisible="true">
+    <p>Modal content goes here.</p>
+</MyModal>
+This code will create an instance of the MyModal component with the IsVisible parameter set to true, and will include the child content defined in the slot.
+
+That's it! With these steps, you can create a reusable Bootstrap modal component in Razor.
