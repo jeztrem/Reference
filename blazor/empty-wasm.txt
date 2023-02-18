@@ -1,0 +1,11 @@
+https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-new
+You can run "dotnet new list" to see a list of all installed templates.
+
+cd local (e.g., modal/blazor)
+dotnet new blazorwasm-empty 
+dotnet run 
+
+sets up server on http://localhost:....
+
+make sure and rm bin/obj before git
+
