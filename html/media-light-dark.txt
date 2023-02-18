@@ -1,0 +1,13 @@
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff; /* set a light background color */
+    color: #333333; /* set a dark text color */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333333; /* set a dark background color */
+    color: #ffffff; /* set a light text color */
+  }
+}
