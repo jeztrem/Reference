@@ -11,3 +11,7 @@
     color: #ffffff; /* set a light text color */
   }
 }
+
+:root {
+  --primary-color: #007bff;
+}

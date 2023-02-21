@@ -1,0 +1,22 @@
+https://learn.microsoft.com/en-us/aspnet/core/blazor/components/data-binding?view=aspnetcore-5.0#child-to-parent-binding-with-chained-bind
+
+Binding with component parameters
+
+A common scenario is binding a property of a child component to a property in its parent component. 
+This scenario is called a chained bind because multiple levels of binding occur simultaneously.
+
+Component parameters permit binding properties of a parent component with @bind-{PROPERTY} syntax, 
+where the {PROPERTY} placeholder is the property to bind.
+
+You can't implement chained binds with @bind syntax in the child component. An event handler 
+and value must be specified separately to support updating the property in the parent from the child component.
+
+The parent component still leverages the @bind syntax to set up the databinding with the child component.
+
+The following ChildBind component has a Year component parameter and an EventCallback<TValue>. 
+By convention, the EventCallback<TValue> for the parameter must be named as the component parameter 
+name with a "Changed" suffix. The naming syntax is {PARAMETER NAME}Changed, where the {PARAMETER NAME} 
+placeholder is the parameter name. In the following example, the EventCallback<TValue> is named YearChanged.
+
+EventCallback.InvokeAsync invokes the delegate associated with the binding with the provided 
+argument and dispatches an event notification for the changed property.

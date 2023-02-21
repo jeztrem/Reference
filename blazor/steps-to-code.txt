@@ -1,0 +1,8 @@
+1). Yb.Shared
+rm Yb.shared from Yb.Client.csproj and Yb.Server.csproj
+  <ItemGroup>
+    <ProjectReference Include="..\Client\Yb.Client.csproj" />
+    <ProjectReference Include="..\Shared\Yb.Shared.csproj" />
+  </ItemGroup>
+
+2). Yb.Client/wwwroot/index.html
