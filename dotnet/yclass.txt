@@ -17,3 +17,46 @@ dotnet build wrappers/code.wrappers.sln
 dotnet build wrapperbuilder/code.wrapperbuilder.sln
 dotnet build encounterbuilder/code.encounterbuilder.sln
 dotnet build prep/code.prep.sln
+
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Utility
+dotnet build utility/code.utility.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Xml
+dotnet build xml/code.xml.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Storage.Prep
+dotnet build storage.prep/storage.prep.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Storage.Azure
+dotnet build storage.azure/storage.azure.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Storage.Local
+dotnet build storage.local/storage.local.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Settings
+dotnet build settings/code.settings.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Identity
+dotnet build identity/code.identity.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Admin
+dotnet build admin/code.admin.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Start
+dotnet build start/code.start.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/EntryBuilder
+dotnet build entrybuilder/code.entrybuilder.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Wrappers
+dotnet build wrappers/code.wrappers.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/WrapperBuilder
+dotnet build wrapperbuilder/code.wrapperbuilder.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/EncounterBuilder
+dotnet build encounterbuilder/code.encounterbuilder.sln
+
+git clone https://jeztrem@dev.azure.com/jeztrem/YClass/_git/Prep
+dotnet build prep/code.prep.sln
