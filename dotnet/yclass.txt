@@ -10,7 +10,7 @@ dotnet build storage.azure/storage.azure.sln
 dotnet build storage.local/storage.local.sln
 dotnet build settings/code.settings.sln
 dotnet build identity/code.identity.sln
-dotnet build admin /code.admin.sln
+dotnet build admin/code.admin.sln
 dotnet build start/code.start.sln
 dotnet build entrybuilder/code.entrybuilder.sln
 dotnet build wrappers/code.wrappers.sln
