@@ -1,0 +1,5 @@
+To manually include projects, in the {projectname}.csproj file include the path to the project reference.  
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Code.Utility.csproj" />
+  </ItemGroup>
