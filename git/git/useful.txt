@@ -1,0 +1,68 @@
+git status
+git ls-remote
+
+
+Workflow Updating local repository
+**************************
+My local repos is missing updates and has a local file not on remote.
+This is explained in git-doc/3.5/git-branching
+Right way.
+git fetch origin 
+git pull  (synch work with remote)
+git push origin main
+
+C:\Users\jeztr\Local\Reference>git push origin main
+To https://github.com/jeztrem/Reference.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/jeztrem/Reference.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+C:\Users\jeztr\Local\Reference>git pull main
+fatal: 'main' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+C:\Users\jeztr\Local\Reference>git fetch origin
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (12/12), done.
+remote: Total 12 (delta 6), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (12/12), 2.55 KiB | 74.00 KiB/s, done.
+From https://github.com/jeztrem/Reference
+   ea2113e..12190b4  main       -> origin/main
+
+C:\Users\jeztr\Local\Reference>git status
+On branch main
+Your branch is behind 'origin/main' by 3 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        git/git/useful.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\jeztr\Local\Reference>git pull
+Updating ea2113e..12190b4
+Fast-forward
+ dotnet/projects.txt |  5 +++++
+ dotnet/yclass.txt   | 47 +++++++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 50 insertions(+), 2 deletions(-)
+ create mode 100644 dotnet/projects.txt
+
+C:\Users\jeztr\Local\Reference>git push origin main
+Everything up-to-date
+
+C:\Users\jeztr\Local\Reference>git ls-remote
+From https://github.com/jeztrem/Reference.git
+12190b4628715bd691ede7558e3a5bd1b1cd74b1        HEAD
+3e12850544a6ebbbee474c18e835b0d798aab050        refs/heads/devcmztrem
+12190b4628715bd691ede7558e3a5bd1b1cd74b1        refs/heads/main
+
+C:\Users\jeztr\Local\Reference>
