@@ -1,0 +1,15 @@
+THE LAST WORD
+In summary, here is our minimum recommendation for safe storage of your users’ passwords:
+
+Use a strong random number generator to create a salt of 16 bytes or longer.
+Feed the salt and the password into the PBKDF2 algorithm.
+Use HMAC-SHA-256 as the core hash inside PBKDF2.
+Perform 200,000 iterations or more [October 2022].
+Take 32 bytes (256 bits) of output from PBKDF2 as the final password hash.
+Store the iteration count, the salt and the final hash in your password database.
+Increase your iteration count regularly to keep up with faster cracking tools.
+Whatever you do, don’t try to knit your own password storage algorithm.
+
+It didn’t end well for Adobe, and it is unlikely to end well for you.
+
+https://nakedsecurity.sophos.com/2013/11/20/serious-security-how-to-store-your-users-passwords-safely/
