@@ -13,3 +13,26 @@ Whatever you do, don’t try to knit your own password storage algorithm.
 It didn’t end well for Adobe, and it is unlikely to end well for you.
 
 https://nakedsecurity.sophos.com/2013/11/20/serious-security-how-to-store-your-users-passwords-safely/
+
+https://learn.microsoft.com/en-us/dotnet/api/system.security.cryptography.rfc2898derivebytes.pbkdf2?view=net-7.0
+PBKDF2 is a password-based key derivation function that can be used to generate cryptographic keys from a password and a salt1. In .NET 7 and .NET 6, you can use the Rfc2898DeriveBytes.Pbkdf2 method to create a PBKDF2 derived key from a password1. You can also use the KeyDerivation.Pbkdf2 API in ASP.NET Core, but it is intended for low-level integration with existing protocols or systems2.
+
+What are you trying to achieve with PBKDF2 in net7?
+
+I see. There are different ways to implement secure login code in Blazor, depending on your scenario and preferences. One option is to use IdentityServer as an authentication provider and configure your app to request an access token for a secure API12. Another option is to use Azure Active Directory as an identity provider and call a protected API from your app3. You can also use ASP.NET Core Identity to manage user registration and login45.
+
+Which option are you interested in?
+
+ASP.NET Core Identity is a framework that provides user management, authentication and authorization for your app². You can use ASP.NET Core Identity with Blazor by following these steps:
+
+- Create a database connection for your app using MSSQL, Oracle, MySQL or Postgres³.
+- Add ASP.NET Core Identity as a Razor Class Library to your app¹.
+- Apply the scaffolder to selectively add the source code for Identity to your app¹.
+- Modify the code and change the behavior as needed¹.
+
+Do you have any questions about these steps?
+
+Source: Conversation with Bing, 3/4/2023(1) ASP.NET Core Blazor authentication and authorization. https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-7.0 Accessed 3/4/2023.
+(2) ASP.NET Core Identity - radzen.com. https://www.radzen.com/blazor-studio/documentation/security/identity/ Accessed 3/4/2023.
+(3) ASP.NET core identity setup in blazor using Scaffolded. https://eugenechiang.azurewebsites.net/2020/12/15/asp-net-core-identity-setup-in-blazor-application/ Accessed 3/4/2023.
+(4) Tutorial - Create a Blazor Server app that uses the Microsoft identity .... https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-blazor-server Accessed 3/4/2023.
