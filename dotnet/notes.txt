@@ -1,1 +1,3 @@
 blazor wasm-empty
+
+dotnet new react -au Individual
