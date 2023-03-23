@@ -1,0 +1,23 @@
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+in powershell az
+
+az login
+az interactive (clunky)
+
+Create a resource group
+ az group create --name eppa-resource-group --location northcentralus
+{
+  "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/eppa-resource-group",
+  "location": "northcentralus",
+  "managedBy": null,
+  "name": "eppa-resource-group",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+
+Create a storage account (name must be unique)
+az storage account create --name eppastorage001 --resource-group eppa-resource-group --location northcentralus --sku Standard_RAGRS --kind StorageV2
+
