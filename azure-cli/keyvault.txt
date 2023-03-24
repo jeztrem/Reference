@@ -1,0 +1,106 @@
+az keyvault list 
+
+[
+  {
+    "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/Default-Web-NorthCentralUS/providers/Microsoft.KeyVault/vaults/FBC",
+    "location": "centralus",
+    "name": "FBC",
+    "resourceGroup": "Default-Web-NorthCentralUS",
+    "tags": {},
+    "type": "Microsoft.KeyVault/vaults"
+  },
+  {
+    "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/Default-Web-NorthCentralUS/providers/Microsoft.KeyVault/vaults/stcloudfbc",
+    "location": "centralus",
+    "name": "stcloudfbc",
+    "resourceGroup": "Default-Web-NorthCentralUS",
+    "tags": {},
+    "type": "Microsoft.KeyVault/vaults"
+  },
+  {
+    "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/Yazure/providers/Microsoft.KeyVault/vaults/ystore",
+    "location": "northcentralus",
+    "name": "ystore",
+    "resourceGroup": "Yazure",
+    "tags": {},
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+
+create a resourcegroup
+az group create --name yeppa --location northcentralus
+
+create https://yeppakv.vault.azure.net
+az keyvault create --name yeppakv --resource-group yeppa --location northcentralus
+{
+  "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/yeppa/providers/Microsoft.KeyVault/vaults/yeppakv",
+  "location": "northcentralus",
+  "name": "yeppakv",
+  "properties": {
+    "accessPolicies": [
+      {
+        "applicationId": null,
+        "objectId": "f872f70c-2582-49a9-b602-2e86217e7249",
+        "permissions": {
+          "certificates": [
+            "all"
+          ],
+          "keys": [
+            "all"
+          ],
+          "secrets": [
+            "all"
+          ],
+          "storage": [
+            "all"
+          ]
+        },
+        "tenantId": "1803940a-3e84-4341-9dac-9a2902a21974"
+      }
+    ],
+    "createMode": null,
+    "enablePurgeProtection": null,
+    "enableRbacAuthorization": null,
+    "enableSoftDelete": true,
+    "enabledForDeployment": false,
+    "enabledForDiskEncryption": null,
+    "enabledForTemplateDeployment": null,
+    "hsmPoolResourceId": null,
+    "networkAcls": null,
+    "privateEndpointConnections": null,
+    "provisioningState": "Succeeded",
+    "publicNetworkAccess": "Enabled",
+    "sku": {
+      "family": "A",
+      "name": "standard"
+    },
+    "softDeleteRetentionInDays": 90,
+    "tenantId": "1803940a-3e84-4341-9dac-9a2902a21974",
+    "vaultUri": "https://yeppakv.vault.azure.net/"
+  },
+  "resourceGroup": "yeppa",
+  "systemData": {
+    "createdAt": "2023-03-23T22:41:14.848000+00:00",
+    "createdBy": "jeztrem@hotmail.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2023-03-23T22:41:14.848000+00:00",
+    "lastModifiedBy": "jeztrem@hotmail.com",
+    "lastModifiedByType": "User"
+  },
+  "tags": {},
+  "type": "Microsoft.KeyVault/vaults"
+}
+
+cleanup
+az group delete --name yeppa
+
+az keyvault list
+az group create --name yeppa --location northcentralus
+az keyvault create --name yeppakv --resource-group yeppa --location northcentralus
+az keyvault key create --vault-name yeppakv -n yeppaExampleKey --protection software
+az keyvault key show --vault-name yeppakv --name yeppaExampleKey 
+az group delete --name yeppa
+
+
+"https://yeppakv.vault.azure.net/keys/yeppaExampleKey/ecf6a5a74f704065a039ef212134aaf6"
+

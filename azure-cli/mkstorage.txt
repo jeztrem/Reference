@@ -20,4 +20,3 @@ Create a resource group
 
 Create a storage account (name must be unique)
 az storage account create --name eppastorage001 --resource-group eppa-resource-group --location northcentralus --sku Standard_RAGRS --kind StorageV2
-

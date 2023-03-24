@@ -1,0 +1,91 @@
+az.login
+az keyvault set-policy --name yeppakv --upn jeztrem@hotmail.com --secret-permissions delete get list set purge
+
+
+go to AD (active directory) and find me)
+C:\Users\jeztr\LocalT\Reference\azure-net>az ad user show --id f872f70c-2582-49a9-b602-2e86217e7249
+{
+  "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#users/$entity",
+  "businessPhones": [],
+  "displayName": "john mertz",
+  "givenName": "john",
+  "id": "f872f70c-2582-49a9-b602-2e86217e7249",
+  "jobTitle": null,
+  "mail": null,
+  "mobilePhone": null,
+  "officeLocation": null,
+  "preferredLanguage": null,
+  "surname": "mertz",
+  "userPrincipalName": "jeztrem_hotmail.com#EXT#@jeztremhotmail.onmicrosoft.com"
+}
+
+az keyvault set-policy --name yeppakv --upn jeztrem_hotmail.com#EXT#@jeztremhotmail.onmicrosoft.com --secret-permissions delete get list set purge
+{
+  "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/yeppa/providers/Microsoft.KeyVault/vaults/yeppakv",
+  "location": "northcentralus",
+  "name": "yeppakv",
+  "properties": {
+    "accessPolicies": [
+      {
+        "applicationId": null,
+        "objectId": "f872f70c-2582-49a9-b602-2e86217e7249",
+        "permissions": {
+          "certificates": [
+            "all"
+          ],
+          "keys": [
+            "all"
+          ],
+          "secrets": [
+            "purge",
+            "get",
+            "list",
+            "set",
+            "delete"
+          ],
+          "storage": [
+            "all"
+          ]
+        },
+        "tenantId": "1803940a-3e84-4341-9dac-9a2902a21974"
+      }
+    ],
+    "createMode": null,
+    "enablePurgeProtection": null,
+    "enableRbacAuthorization": null,
+    "enableSoftDelete": true,
+    "enabledForDeployment": false,
+    "enabledForDiskEncryption": null,
+    "enabledForTemplateDeployment": null,
+    "hsmPoolResourceId": null,
+    "networkAcls": null,
+    "privateEndpointConnections": null,
+    "provisioningState": "Succeeded",
+    "publicNetworkAccess": "Enabled",
+    "sku": {
+      "family": "A",
+      "name": "standard"
+    },
+    "softDeleteRetentionInDays": 90,
+    "tenantId": "1803940a-3e84-4341-9dac-9a2902a21974",
+    "vaultUri": "https://yeppakv.vault.azure.net/"
+  },
+  "resourceGroup": "yeppa",
+  "systemData": {
+    "createdAt": "2023-03-23T22:41:14.848000+00:00",
+    "createdBy": "jeztrem@hotmail.com",
+    "createdByType": "User",
+    "lastModifiedAt": "2023-03-23T23:59:21.677000+00:00",
+    "lastModifiedBy": "jeztrem@hotmail.com",
+    "lastModifiedByType": "User"
+  },
+  "tags": {},
+  "type": "Microsoft.KeyVault/vaults"
+}
+
+dotnet new console --name key-vault-console-app
+cd key-vault-console-app
+dotnet add package Azure.Security.KeyVault.Secrets
+dotnet add package Azure.Identity
+set KEY_VAULT_NAME=yeppakv
+
