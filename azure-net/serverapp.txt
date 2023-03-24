@@ -1,0 +1,517 @@
+https://learn.microsoft.com/en-us/azure/key-vault/general/tutorial-net-create-vault-azure-web-app
+
+mkdir akvwebapp
+cd akvwebapp
+dotnet new web
+dotnet run
+
+git init --initial-branch=main
+git add .
+git commit -m "first commit"
+(forget about gitignore for now)
+
+
+C:\Users\jeztr\LocalT\Reference\akwebapp>az webapp deployment user set --user-name jeztrem00 --password Psalm141
+{
+  "id": null,
+  "kind": null,
+  "name": "web",
+  "publishingPassword": null,
+  "publishingPasswordHash": null,
+  "publishingPasswordHashSalt": null,
+  "publishingUserName": "jeztrem00",
+  "scmUri": null,
+  "type": "Microsoft.Web/publishingUsers/web"
+}
+
+az appservice plan create --name yeppaservice --resource-group yeppa --sku FREE
+{
+  "elasticScaleEnabled": false,
+  "extendedLocation": null,
+  "freeOfferExpirationTime": null,
+  "geoRegion": "North Central US",
+  "hostingEnvironmentProfile": null,
+  "hyperV": false,
+  "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/yeppa/providers/Microsoft.Web/serverfarms/yeppaservice",
+  "isSpot": false,
+  "isXenon": false,
+  "kind": "app",
+  "kubeEnvironmentProfile": null,
+  "location": "northcentralus",
+  "maximumElasticWorkerCount": 1,
+  "maximumNumberOfWorkers": 0,
+  "name": "yeppaservice",
+  "numberOfSites": 0,
+  "numberOfWorkers": 0,
+  "perSiteScaling": false,
+  "provisioningState": "Succeeded",
+  "reserved": false,
+  "resourceGroup": "yeppa",
+  "sku": {
+    "capabilities": null,
+    "capacity": 0,
+    "family": "F",
+    "locations": null,
+    "name": "F1",
+    "size": "F1",
+    "skuCapacity": null,
+    "tier": "Free"
+  },
+  "spotExpirationTime": null,
+  "status": "Ready",
+  "subscription": "1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7",
+  "tags": null,
+  "targetWorkerCount": 0,
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null,
+  "zoneRedundant": false
+}
+
+
+az webapp create --resource-group yeppa --plan yeppaservice --name yeppaweb --deployment-local-git
+az webapp create --resource-group yeppa --plan yeppaservice --name yeppaweb --deployment-local-git
+Local git is configured with url of 'https://jeztrem00@yeppaweb.scm.azurewebsites.net/yeppaweb.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "26CA14CE47C0ADEF9164178C47339F03798D2AF42F453CFFE659D92E47D324D2",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "yeppaweb.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://jeztrem00@yeppaweb.scm.azurewebsites.net/yeppaweb.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "yeppaweb.azurewebsites.net",
+    "yeppaweb.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftp://waws-prod-ch1-057.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "yeppaweb.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIp": null
+    },
+    {
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "yeppaweb.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "yeppaweb.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/yeppa/providers/Microsoft.Web/sites/yeppaweb",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-03-24T02:19:39.173333",
+  "location": "North Central US",
+  "maxNumberOfWorkers": null,
+  "name": "yeppaweb",
+  "outboundIpAddresses": "23.96.239.11,65.52.27.118,65.52.233.222,23.96.239.58,23.96.239.91,23.96.239.107,52.162.107.10",
+  "possibleOutboundIpAddresses": "23.96.239.11,65.52.27.118,65.52.233.222,23.96.239.58,23.96.239.91,23.96.239.107,23.96.239.28,65.52.9.56,23.96.239.77,65.52.27.167,23.96.239.114,23.96.239.60,65.52.233.171,23.96.239.121,23.96.236.25,23.96.236.37,23.96.230.167,23.96.236.73,23.96.230.195,23.96.236.134,65.52.11.162,23.96.236.168,65.52.14.241,65.52.10.33,23.96.236.112,65.52.30.170,65.52.22.27,23.96.237.116,23.96.237.28,23.96.237.156,52.162.107.10",
+  "publicNetworkAccess": null,
+  "redundancyMode": "None",
+  "repositorySiteName": "yeppaweb",
+  "reserved": false,
+  "resourceGroup": "yeppa",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/yeppa/providers/Microsoft.Web/serverfarms/yeppaservice",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": null,
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": false
+}
+
+ webapp create --resource-group yeppa --plan yeppaservice --name yeppaweb --deployment-local-git
+Local git is configured with url of 'https://jeztrem00@yeppaweb.scm.azurewebsites.net/yeppaweb.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "clientCertMode": "Required",
+  "cloningInfo": null,
+  "containerSize": 0,
+  "customDomainVerificationId": "26CA14CE47C0ADEF9164178C47339F03798D2AF42F453CFFE659D92E47D324D2",
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "yeppaweb.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://jeztrem00@yeppaweb.scm.azurewebsites.net/yeppaweb.git",
+  "enabled": true,
+  "enabledHostNames": [
+    "yeppaweb.azurewebsites.net",
+    "yeppaweb.scm.azurewebsites.net"
+  ],
+  "extendedLocation": null,
+  "ftpPublishingUrl": "ftp://waws-prod-ch1-057.ftp.azurewebsites.windows.net/site/wwwroot",
+  "hostNameSslStates": [
+    {
+      "hostType": "Standard",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "yeppaweb.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIp": null
+    },
+    {
+      "hostType": "Repository",
+      "ipBasedSslResult": null,
+      "ipBasedSslState": "NotConfigured",
+      "name": "yeppaweb.scm.azurewebsites.net",
+      "sslState": "Disabled",
+      "thumbprint": null,
+      "toUpdate": null,
+      "toUpdateIpBasedSsl": null,
+      "virtualIp": null
+    }
+  ],
+  "hostNames": [
+    "yeppaweb.azurewebsites.net"
+  ],
+  "hostNamesDisabled": false,
+  "hostingEnvironmentProfile": null,
+  "httpsOnly": false,
+  "hyperV": false,
+  "id": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/yeppa/providers/Microsoft.Web/sites/yeppaweb",
+  "identity": null,
+  "inProgressOperationId": null,
+  "isDefaultContainer": null,
+  "isXenon": false,
+  "keyVaultReferenceIdentity": "SystemAssigned",
+  "kind": "app",
+  "lastModifiedTimeUtc": "2023-03-24T02:19:39.173333",
+  "location": "North Central US",
+  "maxNumberOfWorkers": null,
+  "name": "yeppaweb",
+  "outboundIpAddresses": "23.96.239.11,65.52.27.118,65.52.233.222,23.96.239.58,23.96.239.91,23.96.239.107,52.162.107.10",
+  "possibleOutboundIpAddresses": "23.96.239.11,65.52.27.118,65.52.233.222,23.96.239.58,23.96.239.91,23.96.239.107,23.96.239.28,65.52.9.56,23.96.239.77,65.52.27.167,23.96.239.114,23.96.239.60,65.52.233.171,23.96.239.121,23.96.236.25,23.96.236.37,23.96.230.167,23.96.236.73,23.96.230.195,23.96.236.134,65.52.11.162,23.96.236.168,65.52.14.241,65.52.10.33,23.96.236.112,65.52.30.170,65.52.22.27,23.96.237.116,23.96.237.28,23.96.237.156,52.162.107.10",
+  "publicNetworkAccess": null,
+  "redundancyMode": "None",
+  "repositorySiteName": "yeppaweb",
+  "reserved": false,
+  "resourceGroup": "yeppa",
+  "scmSiteAlsoStopped": false,
+  "serverFarmId": "/subscriptions/1463bbd6-dc4c-4c1c-a8a8-3c078d5ec1a7/resourceGroups/yeppa/providers/Microsoft.Web/serverfarms/yeppaservice",
+  "siteConfig": {
+    "acrUseManagedIdentityCreds": false,
+    "acrUserManagedIdentityId": null,
+    "alwaysOn": false,
+    "antivirusScanEnabled": null,
+    "apiDefinition": null,
+    "apiManagementConfig": null,
+    "appCommandLine": null,
+    "appSettings": null,
+    "autoHealEnabled": null,
+    "autoHealRules": null,
+    "autoSwapSlotName": null,
+    "azureMonitorLogCategories": null,
+    "azureStorageAccounts": null,
+    "connectionStrings": null,
+    "cors": null,
+    "customAppPoolIdentityAdminState": null,
+    "customAppPoolIdentityTenantState": null,
+    "defaultDocuments": null,
+    "detailedErrorLoggingEnabled": null,
+    "documentRoot": null,
+    "elasticWebAppScaleLimit": 0,
+    "experiments": null,
+    "fileChangeAuditEnabled": null,
+    "ftpsState": null,
+    "functionAppScaleLimit": null,
+    "functionsRuntimeScaleMonitoringEnabled": null,
+    "handlerMappings": null,
+    "healthCheckPath": null,
+    "http20Enabled": false,
+    "http20ProxyFlag": null,
+    "httpLoggingEnabled": null,
+    "ipSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "ipSecurityRestrictionsDefaultAction": null,
+    "javaContainer": null,
+    "javaContainerVersion": null,
+    "javaVersion": null,
+    "keyVaultReferenceIdentity": null,
+    "limits": null,
+    "linuxFxVersion": "",
+    "loadBalancing": null,
+    "localMySqlEnabled": null,
+    "logsDirectorySizeLimit": null,
+    "machineKey": null,
+    "managedPipelineMode": null,
+    "managedServiceIdentityId": null,
+    "metadata": null,
+    "minTlsCipherSuite": null,
+    "minTlsVersion": null,
+    "minimumElasticInstanceCount": 0,
+    "netFrameworkVersion": null,
+    "nodeVersion": null,
+    "numberOfWorkers": 1,
+    "phpVersion": null,
+    "powerShellVersion": null,
+    "preWarmedInstanceCount": null,
+    "publicNetworkAccess": null,
+    "publishingPassword": null,
+    "publishingUsername": null,
+    "push": null,
+    "pythonVersion": null,
+    "remoteDebuggingEnabled": null,
+    "remoteDebuggingVersion": null,
+    "requestTracingEnabled": null,
+    "requestTracingExpirationTime": null,
+    "routingRules": null,
+    "runtimeADUser": null,
+    "runtimeADUserPassword": null,
+    "scmIpSecurityRestrictions": [
+      {
+        "action": "Allow",
+        "description": "Allow all access",
+        "headers": null,
+        "ipAddress": "Any",
+        "name": "Allow all",
+        "priority": 2147483647,
+        "subnetMask": null,
+        "subnetTrafficTag": null,
+        "tag": null,
+        "vnetSubnetResourceId": null,
+        "vnetTrafficTag": null
+      }
+    ],
+    "scmIpSecurityRestrictionsDefaultAction": null,
+    "scmIpSecurityRestrictionsUseMain": null,
+    "scmMinTlsVersion": null,
+    "scmType": null,
+    "sitePort": null,
+    "storageType": null,
+    "supportedTlsCipherSuites": null,
+    "tracingOptions": null,
+    "use32BitWorkerProcess": null,
+    "virtualApplications": null,
+    "vnetName": null,
+    "vnetPrivatePortsCount": null,
+    "vnetRouteAllEnabled": null,
+    "webSocketsEnabled": null,
+    "websiteTimeZone": null,
+    "winAuthAdminState": null,
+    "winAuthTenantState": null,
+    "windowsConfiguredStacks": null,
+    "windowsFxVersion": null,
+    "xManagedServiceIdentityId": null
+  },
+  "slotSwapStatus": null,
+  "state": "Running",
+  "storageAccountRequired": false,
+  "suspendedTill": null,
+  "tags": null,
+  "targetSwapSlot": null,
+  "trafficManagerHostNames": null,
+  "type": "Microsoft.Web/sites",
+  "usageState": "Normal",
+  "virtualNetworkSubnetId": null,
+  "vnetContentShareEnabled": false,
+  "vnetImagePullEnabled": false,
+  "vnetRouteAllEnabled": false
+}
+
+C:\Users\jeztr\LocalT\Reference\akwebapp>git remote add azure https://jeztrem00@yeppaweb.scm.azurewebsites.net/yeppaweb.git
+
+C:\Users\jeztr\LocalT\Reference\akwebapp>git push azure main
+Enumerating objects: 42, done.
+Counting objects: 100% (42/42), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (33/33), done.
+Writing objects: 100% (42/42), 97.08 KiB | 5.71 MiB/s, done.
+Total 42 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: The current deployment branch is 'master', but nothing has been pushed to it
+remote: Error - Changes committed to remote repository but deployment to website failed.
+To https://yeppaweb.scm.azurewebsites.net/yeppaweb.git
+ * [new branch]      main -> main
+
+Summary
+az group delete --name yeppa
+az group create --name yeppa --location northcentralus
+az keyvault create --name yeppakv002 --resource-group yeppa --location northcentralus
+
+
+cd akvwebapp
+dotnet new web
+dotnet run
+
+git init
+git add .
+git commit -m "first commit"
+az webapp deployment user set --user-name jeztrem00 --password Psalm141
+az appservice plan create --name yeppaservice --resource-group yeppa --sku FREE
+az webapp create --resource-group yeppa --plan yeppaservice --name yeppaweb --deployment-local-git
+git remote add azure https://jeztrem00@yeppaweb.scm.azurewebsites.net/yeppaweb.git
+git push azure master
+
+
+

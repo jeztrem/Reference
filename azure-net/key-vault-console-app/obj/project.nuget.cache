@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "dgSpecHash": "yJIS1xy2YcCy1/qcKgQyNWNHbl6vBHbg8r5xOrgcIchzIa7E1sUDrh5ooLU1/zO/p9mvs/BILU+goskqEqF3VA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jeztr\\LocalT\\Reference\\azure-net\\key-vault-console-app\\key-vault-console-app.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jeztr\\.nuget\\packages\\azure.core\\1.30.0\\azure.core.1.30.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\azure.identity\\1.8.2\\azure.identity.1.8.2.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\azure.security.keyvault.secrets\\4.5.0\\azure.security.keyvault.secrets.4.5.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\microsoft.identity.client\\4.49.1\\microsoft.identity.client.4.49.1.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\2.25.3\\microsoft.identity.client.extensions.msal.2.25.3.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.22.0\\microsoft.identitymodel.abstractions.6.22.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.6.0\\system.diagnostics.diagnosticsource.4.6.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.io.filesystem.accesscontrol\\5.0.0\\system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.security.cryptography.protecteddata\\4.7.0\\system.security.cryptography.protecteddata.4.7.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.text.encodings.web\\4.7.2\\system.text.encodings.web.4.7.2.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.text.json\\4.7.2\\system.text.json.4.7.2.nupkg.sha512",
+    "C:\\Users\\jeztr\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+  ],
+  "logs": []
+}

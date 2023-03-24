@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using Azure.Identity;
+﻿using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 
 namespace key_vault_console_app
@@ -11,7 +9,8 @@ namespace key_vault_console_app
         {
             const string secretName = "mySecret";
             var keyVaultName = Environment.GetEnvironmentVariable("KEY_VAULT_NAME");
-            var kvUri = $"https://{keyVaultName}.vault.azure.net";
+            var kv = "yeppakv";
+            var kvUri = $"https://{kv}.vault.azure.net";
 
             var client = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
 
