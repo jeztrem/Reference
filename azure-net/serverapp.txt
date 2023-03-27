@@ -11,7 +11,7 @@ git commit -m "first commit"
 (forget about gitignore for now)
 
 
-C:\Users\jeztr\LocalT\Reference\akwebapp>az webapp deployment user set --user-name jeztrem00 --password Psalm141
+C:\Users\jeztr\LocalT\Reference\akwebapp>az webapp deployment user set --user-name jeztrem00 --password  ***
 {
   "id": null,
   "kind": null,
@@ -507,7 +507,7 @@ dotnet run
 git init
 git add .
 git commit -m "first commit"
-az webapp deployment user set --user-name jeztrem00 --password Psalm141
+az webapp deployment user set --user-name jeztrem00 --password ***
 az appservice plan create --name yeppaservice --resource-group yeppa --sku FREE
 az webapp create --resource-group yeppa --plan yeppaservice --name yeppaweb --deployment-local-git
 git remote add azure https://jeztrem00@yeppaweb.scm.azurewebsites.net/yeppaweb.git
