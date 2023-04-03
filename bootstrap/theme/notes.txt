@@ -1,0 +1,85 @@
+Bootstrap 5.3 allows color mode changes.
+
+Two sources of change (both from the user)
+	1). The browser. 
+	2). The code. 
+
+The browser.
+a). Change from the browser managed through mediaQueryList listener in index.html.
+
+        // Listen for a change the theme.
+        const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+
+        function handleColorSchemeChange(e) {
+            if (e.matches) {
+                console.log('Dark color scheme detected.');
+                setTheme('dark');
+            } else {
+                console.log('Light color scheme detected.');
+                setTheme('light');
+            }
+        }
+
+        mediaQueryList.addEventListener('change', handleColorSchemeChange);
+
+ b) Change from the browser is made to the app through the call to setTheme() in index.html
+
+        function setTheme(themeName) {
+            if (themeName === 'dark') {
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+
+                // Change the user setting button states.
+                const darkButton = document.getElementById('theme-dark');
+                darkButton.classList.remove('btn-outline-secondary');
+                darkButton.classList.add('btn-primary');
+
+                const lightButton = document.getElementById('theme-light');
+                lightButton.classList.remove('btn-primary');
+                lightButton.classList.add('btn-outline-secondary');
+
+            } else {
+                document.documentElement.setAttribute('data-bs-theme', 'light');
+
+                // Change the user setting button states.
+                const lightButton = document.getElementById('theme-light');
+                lightButton.classList.remove('btn-outline-secondary');
+                lightButton.classList.add('btn-primary');
+
+                const darkButton = document.getElementById('theme-dark');
+                darkButton.classList.remove('btn-primary');
+                darkButton.classList.add('btn-outline-secondary');
+            }
+        }
+The code.
+
+ a). The SettingsOffCanvas manages theme changes from the code.
+
+    protected override async Task OnInitializedAsync()
+    {
+        // This sets the theme-light/dark buttons to the correct state.
+
+        string theme = await JSRuntime.InvokeAsync<string>("getTheme", "dummy");
+        if (theme == "dark")
+        {
+            await JSRuntime.InvokeVoidAsync("setTheme", "dark");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("setTheme", "light");
+        }
+    }
+    private async Task Settings_Click(string type)
+    {
+        if (type == "dark")
+        {
+            await JSRuntime.InvokeVoidAsync("setTheme", "dark");
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("setTheme", "light");
+        }
+        StateHasChanged();
+    }
+ b). When them is changed from the code, it does not set the browser theme.
+
+Probably don't have to preference this?
