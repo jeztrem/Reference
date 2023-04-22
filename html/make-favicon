@@ -3,9 +3,33 @@ Make Background bootstrap gray-800 (#343a40)
 Choose custom color (below) #1FB1AA
 Set text color to this
 Monotype Corsiva Bold font 72
-Reset background color to white, crop and save.
+Reset background color to white, crop and save. 
+(This looses the transparent background)
+Also I might need a light and dark favicon?
 
 
 Choose custom color (extract a theme from a picture)
 
 https://color.adobe.com/create/image
+
+
+Yes, some websites may use a different favicon for light and dark media themes. 
+This is known as a "favicon variant" or a "theme-color meta tag" and it is used 
+to ensure that the website icon or logo is visible and legible in both light and dark modes.
+
+To implement a favicon variant, the website can use the following meta tag in the head section of the HTML code:
+
+html
+Copy code
+<meta name="theme-color" content="#ffffff"> <!-- for light mode -->
+<meta name="theme-color" content="#000000"> <!-- for dark mode -->
+
+The theme-color meta tag defines the color of the browser's user interface, 
+such as the address bar, tabs, and toolbars. By specifying a different color 
+for light and dark modes, the website can ensure that the favicon is visible and 
+stands out in both modes.
+
+However, it's worth noting that not all browsers support the theme-color meta 
+tag or favicon variants for dark mode. Therefore, it's important for the website 
+to also ensure that their favicon is visible and legible in both light and dark 
+modes without relying solely on a favicon variant.
