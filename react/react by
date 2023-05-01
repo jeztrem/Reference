@@ -1,0 +1,57 @@
+This is a common problem with jQuery: it’s hard to test because it’s hard to isolate and depends heavily on the browser environment.
+
+Jordan’s idea was to instead use a paradigm called “one-way data flow”. This was a much simpler paradigm and it was much easier 
+to keep the views and models in sync. This was the birth of the “Flux” architecture that would go on to be the foundation of React.
+
+The Flux architecture was a simple idea: instead of binding views to models and then updating the views in place, we would instead 
+destroy the old view and create a new one with the latest state in a minimal and efficient way—a process that would later be called 
+“reconciliation”. 
+
+Reconciliation is the process of comparing the old virtual DOM tree with the new virtual DOM tree and determining which parts of 
+the actual DOM need to be updated.
+
+It does this by using a “virtual DOM”, which is a clone of the real DOM. It then compares the virtual DOM to the real DOM, and makes 
+incremental updates to the real DOM to make it match the virtual DOM. This is how React is able to make updates to the DOM in a safe, 
+predictable, and efficient manner.
+
+The virtual DOM is a programming concept that allows developers to update the UI without directly manipulating the actual DOM. 
+
+But the X in JSX stands for JavaScript Syntax eXtension.
+
+Today, we tend to respond with JSON instead. This is likely one of the reasons why fetch has overtaken XMLHTTPRequest, 
+since we don’t even request XML anymore and the name can be misleading.
+
+function pragma(tag, props, ...children)
+  JSX Code: <MyComponent prop="value">contents</MyComponent>
+  JavaScript code: React.createElement(MyComponent, { prop: "value" }, "contents");
+  The JSX pragma is effectively an alias: < instead of React.createElement.
+  
+  
+Example of presenter/container pattern
+
+const PresentationalCounter = (props) => {
+  return (
+    <section>
+      <button onClick={props.increment}>+</button>
+      <button onClick={props.decrement}>-</button>
+      <button onClick={props.reset}>Reset</button>
+      <h1>Current Count: {props.count}</h1>
+    </section>
+  );
+};
+
+const ContainerCounter = () => {
+  const [count, setCount] = useState(0);
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+  const reset = () => setCount(0);
+
+  return (
+    <PresentationalCounter
+      count={count}
+      increment={increment}
+      decrement={decrement}
+      reset={reset}
+    />
+  );
+};
