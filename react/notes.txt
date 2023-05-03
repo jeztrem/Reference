@@ -27,3 +27,5 @@ Happy hacking!
 >// is not necesssary as the create-react-app does it. npm i react-router-dom
 >cd play
 >npm start
+
+make sure and remove <noscript>
