@@ -1,5 +1,7 @@
-Create a new active directory tenant
+Create a new active directory (tenant)
 Go to azure active directory
 => manage tenants
 => create (can be aad or add-b2c)
 gives you domainname.onmicrosoft.com
+
+This can be seen by hitting the filter button on the top of the azure portal page.
